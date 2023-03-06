@@ -1,6 +1,12 @@
 $font_main: 'Public Sans', sans-serif;
 $font_heading: 'Libre Baskerville', serif;
 
+@mixin max-screen($res) {
+  @media screen and (max-width: $res) {
+    @content;
+  }
+}
+
 .watch {
   background-color: #001F1F;
   padding: 15px 0 16px 0;
@@ -11,6 +17,14 @@ $font_heading: 'Libre Baskerville', serif;
     font-weight: 400;
     line-height: 17px;
     text-decoration: none;
+  }
+}
+
+a.btn{
+  transition: 0.4s;
+
+  &:hover {
+    transform: scale(1.2);
   }
 }
 
@@ -26,11 +40,6 @@ header {
       font-size: 13px;
       line-height: 16px;
       color: white;
-      transition: 0.4s;
-
-      &:hover {
-        transform: scale(1.1);
-      }
     }
 
     .dropdown-menu {
@@ -38,7 +47,7 @@ header {
       border-radius: 5px;
 
       .dropdown-divider {
-        border-top: 1px solid white;
+        border-top: 1px solid #e1a800;
       }
 
       .dropdown-item {
@@ -50,15 +59,14 @@ header {
       }
 
       li {
+        a {
+          color: white;
+
+          &:hover {
+            color: #e1a800;
+          }
         &:last-child {
           background-color: #001F1F;
-
-          a {
-            color: white;
-
-            &:hover {
-              color: #001F1F;
-            }
           }
 
         }
@@ -70,14 +78,18 @@ header {
 .main_banner {
 
   .item {
-    background-image: url("../images/main_banner.png");
-    background-size: cover;
-    height: 100vh;
     padding-top: 175px;
+    background-image: url("../images/main_banner.png");
+    height: 100vh;
+    background-size: cover;
+
+    img{
+      width: 100%;
+    }
 
     .text_wrapper {
       top: 175px;
-      width: 50%;
+      max-width: 35%;
 
       .title {
         font-family: $font_heading;
@@ -109,11 +121,6 @@ header {
         padding: 17px 33px;
         border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 80px;
-        transition: 0.4s;
-
-        &:hover {
-          transform: scale(1.2);
-        }
       }
     }
   }
@@ -123,12 +130,13 @@ header {
     position: relative;
     bottom: 120px;
 
+
     .owl-dot {
       margin: 0 37px;
 
       span {
         display: inline-block;
-        width: 153.31px;
+        max-width: 153.31px;
         height: 1px;
         background-color: white;
       }
@@ -177,6 +185,10 @@ header {
     font-size: 16px;
     line-height: 30px;
     margin-bottom: 19px;
+
+    &:hover{
+      background: #e1a800;
+    }
   }
 
   p {
@@ -239,7 +251,10 @@ header {
     align-items: center;
     gap: 9px;
     border-top: 1px solid rgba(53, 83, 98, 0.3);
+    border-radius: inherit;
     padding-top: 19px;
+    cursor: pointer;
+    text-decoration: none;
 
     p {
       font-family: $font_main;
@@ -287,7 +302,7 @@ header {
   }
 }
 
-.parnters {
+.partners {
 
   padding-top: 16px;
   padding-bottom: 16px;
@@ -299,11 +314,15 @@ header {
     letter-spacing: 0.5px;
     text-transform: uppercase;
     color: rgba(53, 83, 98, 0.6);
+    margin-bottom: inherit;
   }
 
   a {
     text-decoration: none;
     color: rgba(53, 83, 98, 0.6);
+    font-size: 11px;
+    text-transform: uppercase;
+    display: inline-block;
   }
 }
 
@@ -416,12 +435,13 @@ header {
       }
     }
 
-    p {
+    a {
       font-family: $font_main;
       font-weight: 400;
       font-size: 17px;
       line-height: 25px;
       color: #00413E;
+      cursor: pointer;
     }
   }
 }
@@ -461,12 +481,17 @@ header {
     line-height: 22px;
     color: #00413E;
 
+
     time {
       margin-right: 39px;
     }
 
     span {
       font-size: 18px;
+    }
+
+    a{
+      cursor: pointer;
     }
   }
 }
@@ -514,6 +539,11 @@ header {
 
   .img_wrapper {
     max-width: 431px;
+    transition: 1.2s;
+
+    &:hover{
+      scale: (1.6);
+    }
 
     img {
       width: 100%;
@@ -550,12 +580,19 @@ footer {
       }
 
       a {
+        display: inline-block;
         font-family: $font_main;
         font-weight: 400;
         font-size: 15px;
         line-height: 30px;
         color: #EDECEB;
         text-decoration: none;
+        transition: 0.4s;
+
+        &:hover{
+          transform: scale(1.2);
+          color: white;
+        }
       }
     }
   }
