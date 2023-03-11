@@ -20,7 +20,7 @@ $font_heading: 'Libre Baskerville', serif;
   }
 }
 
-a.btn{
+a.btn {
   transition: 0.4s;
 
   &:hover {
@@ -65,8 +65,9 @@ header {
           &:hover {
             color: #e1a800;
           }
-        &:last-child {
-          background-color: #001F1F;
+
+          &:last-child {
+            background-color: #001F1F;
           }
 
         }
@@ -80,9 +81,10 @@ header {
   .item {
     padding-top: 175px;
     background-image: url("../images/main_banner.png");
+    background-size: cover;
     height: 100vh;
 
-    img{
+    img {
       width: 100%;
     }
 
@@ -133,11 +135,27 @@ header {
     .owl-dot {
       margin: 0 37px;
 
+      @include max-screen(1098px) {
+        margin: 0 27px;
+      }
+
+      @include max-screen(992px) {
+        margin: 0 20px;
+      }
+
+      @include max-screen(902px) {
+        display: none;
+      }
+
       span {
         display: inline-block;
-        max-width: 153.31px;
+        width: 153.31px;
         height: 1px;
         background-color: white;
+
+        @include max-screen(1399px) {
+          width: 110px;
+        }
       }
     }
   }
@@ -185,7 +203,7 @@ header {
     line-height: 30px;
     margin-bottom: 19px;
 
-    &:hover{
+    &:hover {
       background: #e1a800;
     }
   }
@@ -489,7 +507,7 @@ header {
       font-size: 18px;
     }
 
-    a{
+    a {
       cursor: pointer;
     }
   }
@@ -540,7 +558,7 @@ header {
     max-width: 431px;
     transition: 1.2s;
 
-    &:hover{
+    &:hover {
       scale: (1.6);
     }
 
@@ -588,7 +606,7 @@ footer {
         text-decoration: none;
         transition: 0.4s;
 
-        &:hover{
+        &:hover {
           transform: scale(1.2);
           color: white;
         }
@@ -609,7 +627,8 @@ footer {
         width: 100%;
       }
     }
-    .text_wrapper{
+
+    .text_wrapper {
       color: white;
     }
   }
